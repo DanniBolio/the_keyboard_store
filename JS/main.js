@@ -1,3 +1,5 @@
+//Primera entrega
+/*
 const catalogoTeclados = [
   {
     id: 1,
@@ -125,3 +127,4 @@ if (respuesta === "Si" || respuesta === "si" || respuesta === "Sí") {
 } else {
   alert("Gracias por visitarnos, ¡Excelente día!");
 }
+*/
