@@ -1,0 +1,93 @@
+.hero {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 88px);
+    background-color: var(--bg-hero);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    height: calc(100vh - 80px);
+}
+
+.hero_bg_texto {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: clamp(120px, 18vw, 264px);
+    color: var(--color-primario);
+    letter-spacing: -18.5px;
+    white-space: nowrap;
+}
+
+.hero_producto_img {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -42%);
+    width: min(1200px, 90%);
+    z-index: 1;
+    transition: transform 0.1s ease-out;
+}
+
+.hero_producto_img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.hero_prod_inf {
+    position: absolute;
+    bottom: 122px;
+    left: 120px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.hero_prod_titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.48px;
+    margin: 0;
+    line-height: 1;
+}
+
+.hero_prod_parrafo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-size: 14px;
+    letter-spacing: -0.42px;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.hero__scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Figtree', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--gray);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.hero__scroll:hover {
+    color: var(--color-primario);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}

@@ -8,30 +8,61 @@
     <link rel="stylesheet" href="CSS/mainstyle.css">
     <link rel="stylesheet" href="CSS/header.css">
     <link rel="stylesheet" href="CSS/colors.css">
+    <link rel="stylesheet" href="CSS/hero.css">
+    <link rel="stylesheet" href="CSS/font_family.css">
     <title>Orange Key - Store</title>
 </head>
 
 <body>
     <header>
+        <button class="abrir-menu" id="abrir"><i class="bi bi-list"></i></button>
         <div class="logo-nav">
             <img src="image/Orange_Key_color.svg" alt="logo Daniel">
         </div>
-        <button class="abrir-menu" id="abrir"><i class="bi bi-list"></i></button>
         <nav class="nav" id="nav">
             <button class="cerrar-menu" id="cerrar"><i class="bi bi-x-circle-fill"></i></button>
             <ul class="nav-list">
-                <li><a href="#">INICIO</a></li>
-                <li><a href="#">PRODUCTOS</a></li>
-                <li><a href="#">SOBRE NOSOTROS</a></li>
-                <li><a href="#">CONTACTO</a></li>
+                <li class="poppins-bold"><a href="#">INICIO</a></li>
+                <li class="poppins-regular"><a href="#">PRODUCTOS</a></li>
+                <li class="poppins-regular"><a href="#">NOSOTROS</a></li>
+                <li class="poppins-regular"><a href="#">CONTACTO</a></li>
             </ul>
         </nav>
+        <div class="icons_profile_carrito">
+            <div class="carrito">
+                <i class="bi bi-cart2"></i>
+            </div>
+            <div class="login_register">
+                <i class="bi bi-person"></i>
+            </div>
+        </div>
     </header>
+
     <body>
-        <div class="hero"></div>
+        <section class="hero">
+            <div class=" hero_bg_texto">
+                RK61 60%
+            </div>
+            <div class="hero_producto_img">
+                <img src="image/Keyboards/RK61_60/RK71_60_WM.png" alt="Teclado Mecánico RK61">
+            </div>
+            <div class="hero_prod_inf">
+                <p class="hero_prod_titulo poppins-bold">Teclado Mecánico</p>
+                <p class="hero_prod_parrafo poppins-regular">Teclado inalámbrico 60% Triple Modo BT5.0/2.4G/USB-C, 61
+                    Teclas, Teclado Compacto para Juegos con
+                    Software.</p>
+            </div>
+            <div class="hero__scroll">
+                <span>SCROLL PARA VER MÁS</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 10l5 5 5-5z" />
+                </svg>
+            </div>
+        </section>
     </body>
     <script src="JS/main.js"></script>
     <script src="JS/burgermenu.js"></script>
+    <script src="JS/hero.js"></script>
 </body>
 
 </html>
