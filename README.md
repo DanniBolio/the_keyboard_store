@@ -1,26 +1,27 @@
-<h1>SIMULADOR DE TIENDA DE TECLADOS EN JAVASCRIPT</h1>
+<h1>THE KEYBOARD STORE - Actualización</h1>
 
 <p>
-En esta primera entrega se desarrolló un pequeño simulador para una tienda de teclados,
-utilizando únicamente código JavaScript. La interacción se realiza mediante 
-<code>prompt</code>, <code>alert</code> y <code>console.log</code>, permitiendo que el usuario navegue por el programa desde la consola.
+En esta segunda entrega se transformó el simulador en una tienda web funcional,
+integrando JavaScript con HTML y CSS mediante la manipulación del DOM.
+Se eliminaron <code>prompt</code> y <code>alert</code>, reemplazándolos por una interfaz visual
+interactiva y moderna.
 </p>
 
 <p>
-El objetivo del proyecto es poner en práctica los conceptos vistos en clase,
-principalmente lógica de programación y control de flujo.
+Como diseñador, quise aprovechar el proyecto no solo para practicar JavaScript,
+sino también para construir algo que realmente se vea bien y pueda usar como parte de mi portfolio de Diseño.
 </p>
 
 <h2>Funcionalidades</h2>
 
 <ul>
-  <li>Saludo personalizado al usuario</li>
-  <li>Visualización del catálogo de teclados</li>
-  <li>Consulta de especificaciones por ID</li>
-  <li>Simulación de compra</li>
-  <li>Validación de disponibilidad</li>
-  <li>Compra de múltiples unidades</li>
-  <li>Impresión de nota de compra en consola</li>
+  <li>Catálogo de productos a partir de array</li>
+  <li>Buscador de teclado a partir de nombre, marca, switch o formato</li>
+  <li>Filtros (marca, formato y precio)</li>
+  <li>Carrito de compras</li>
+  <li>Contador de productos en el navbar</li>
+  <li>Guardado de carrito con localStorage</li>
+  <li>Animaciones al hacer scroll con AOS (Pendiente card por problemas de compativilidad)</li>
 </ul>
 <br>
 <p><strong>Alumno:</strong> Daniel Bolio<br>
