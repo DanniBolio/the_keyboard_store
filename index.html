@@ -2,68 +2,156 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="CSS/mainstyle.css">
-    <link rel="stylesheet" href="CSS/header.css">
-    <link rel="stylesheet" href="CSS/colors.css">
-    <link rel="stylesheet" href="CSS/hero.css">
-    <link rel="stylesheet" href="CSS/font_family.css">
-    <title>Orange Tool - Store</title>
-    <link rel="icon" href="/image/favicon-32x32.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="CSS/mainstyle.css">
+  <link rel="stylesheet" href="CSS/header.css">
+  <link rel="stylesheet" href="CSS/colors.css">
+  <link rel="stylesheet" href="CSS/hero.css">
+  <link rel="stylesheet" href="CSS/font_family.css">
+  <link rel="stylesheet" href="CSS/productos.css">
+  <title>Orange Tool - Store</title>
+  <link rel="icon" href="/image/favicon-32x32.png" type="image/x-icon">
 </head>
 
 <body>
-    <header>
-        <button class="abrir-menu" id="abrir"><i class="bi bi-list"></i></button>
-        <div class="logo-nav">
-            <img src="image/Orange_Key_color.svg" alt="logo Daniel">
-        </div>
-        <nav class="nav" id="nav">
-            <button class="cerrar-menu" id="cerrar"><i class="bi bi-x-circle-fill"></i></button>
-            <ul class="nav-list">
-                <li class="poppins-bold"><a href="#">INICIO</a></li>
-                <li class="poppins-regular"><a href="#">PRODUCTOS</a></li>
-                <li class="poppins-regular"><a href="#">NOSOTROS</a></li>
-                <li class="poppins-regular"><a href="#">CONTACTO</a></li>
-            </ul>
-        </nav>
-        <div class="icons_profile_carrito">
-            <div class="carrito">
-                <i class="bi bi-cart2"></i>
-            </div>
-            <div class="login_register">
-                <i class="bi bi-person"></i>
-            </div>
-        </div>
-    </header>
+  <header>
+    <button type="button" class="abrir-menu" id="abrir">
+      <i class="bi bi-list"></i>
+    </button>
 
-    <body>
-        <section class="hero">
-            <div class=" hero_bg_texto">
-                RK61 60%
+    <div class="logo-nav">
+      <img src="image/Orange_Key_color.svg" alt="Logo Orange Tool">
+    </div>
+
+    <nav class="nav" id="nav">
+      <button type="button" class="cerrar-menu" id="cerrar">
+        <i class="bi bi-x-circle-fill"></i>
+      </button>
+
+      <ul class="nav-list">
+        <li class="poppins-bold"><a href="#">INICIO</a></li>
+        <li class="poppins-regular"><a href="#">PRODUCTOS</a></li>
+        <li class="poppins-regular"><a href="#">NOSOTROS</a></li>
+        <li class="poppins-regular"><a href="#">CONTACTO</a></li>
+      </ul>
+    </nav>
+
+    <div class="icons_profile_carrito">
+      <div class="carrito">
+        <i class="bi bi-cart2"></i>
+      </div>
+
+      <div class="login_register">
+        <i class="bi bi-person"></i>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero_bg_texto">
+        RK61 60%
+      </div>
+      <div class="hero_producto_img">
+        <img src="image/Keyboards/RK61_60/RK71_60_WM.png" alt="Teclado mecánico RK61 60%">
+      </div>
+      <div class="hero_prod_inf">
+        <p class="hero_prod_titulo poppins-bold">Teclado Mecánico</p>
+        <p class="hero_prod_parrafo poppins-regular">
+          Teclado inalámbrico 60% Triple Modo BT5.0 / 2.4G / USB-C,
+          61 teclas, teclado compacto para juegos con software.
+        </p>
+      </div>
+      <div class="hero__scroll">
+        <span>SCROLL PARA VER MÁS</span>
+        <i class="bi bi-arrow-down-circle-fill"></i>
+      </div>
+    </section>
+    <section class="productos">
+      <div class="productos__header">
+        <h2 class="productos__titulo poppins-bold">Productos Recientes</h2>
+        <div class="productos__controles">
+          <div class="productos__buscador">
+            <i class="bi bi-search"></i>
+            <input type="text" class="productos__input poppins-regular" placeholder="Buscar producto..."
+              id="inputBuscar" />
+          </div>
+          <button class="productos__filtro poppins-regular" id="btnFiltro">
+            <i class="bi bi-sliders"></i>
+            Filtrar
+          </button>
+        </div>
+      </div>
+      <div class="productos__grid">
+        <article class="card">
+          <div class="card__imagen">
+            <img src="image/Keyboards/RK61_60/RK71_60_WM.png" alt="RK61 60% Royal Kludge">
+          </div>
+          <div class="card__info">
+            <p class="card__nombre">RK61 60% Royal Kludge</p>
+            <div class="card__precios">
+              <span class="card__precio-anterior">$120.00</span>
+              <span class="card__precio-actual">$120.00</span>
             </div>
-            <div class="hero_producto_img">
-                <img src="image/Keyboards/RK61_60/RK71_60_WM.png" alt="Teclado Mecánico RK61">
+          </div>
+          <button class="card__boton">
+            <i class="bi bi-cart"></i> Comprar ahora
+          </button>
+        </article>
+        <article class="card">
+          <div class="card__imagen">
+            <img src="image/Keyboards/RK61_60/RK71_60_WM.png" alt="RK61 60% Royal Kludge">
+          </div>
+          <div class="card__info">
+            <p class="card__nombre">RK61 60% Royal Kludge</p>
+            <div class="card__precios">
+              <span class="card__precio-anterior">$120.00</span>
+              <span class="card__precio-actual">$120.00</span>
             </div>
-            <div class="hero_prod_inf">
-                <p class="hero_prod_titulo poppins-bold">Teclado Mecánico</p>
-                <p class="hero_prod_parrafo poppins-regular">Teclado inalámbrico 60% Triple Modo BT5.0/2.4G/USB-C, 61
-                    Teclas, Teclado Compacto para Juegos con
-                    Software.</p>
+          </div>
+          <button class="card__boton">
+            <i class="bi bi-cart"></i> Comprar ahora
+          </button>
+        </article>
+        <article class="card">
+          <div class="card__imagen">
+            <img src="image/Keyboards/RK61_60/RK71_60_WM.png" alt="RK61 60% Royal Kludge">
+          </div>
+          <div class="card__info">
+            <p class="card__nombre">RK61 60% Royal Kludge</p>
+            <div class="card__precios">
+              <span class="card__precio-anterior">$120.00</span>
+              <span class="card__precio-actual">$120.00</span>
             </div>
-            <div class="hero__scroll">
-                <span>SCROLL PARA VER MÁS</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M7 10l5 5 5-5z" />
-                </svg>
+          </div>
+          <button class="card__boton">
+            <i class="bi bi-cart"></i> Comprar ahora
+          </button>
+        </article>
+        <article class="card">
+          <div class="card__imagen">
+            <img src="image/Keyboards/RK61_60/RK71_60_WM.png" alt="RK61 60% Royal Kludge">
+          </div>
+          <div class="card__info">
+            <p class="card__nombre">RK61 60% Royal Kludge</p>
+            <div class="card__precios">
+              <span class="card__precio-anterior">$120.00</span>
+              <span class="card__precio-actual">$120.00</span>
             </div>
-        </section>
-    </body>
-    <script src="JS/main.js"></script>
-    <script src="JS/burgermenu.js"></script>
-    <script src="JS/hero.js"></script>
+          </div>
+          <button class="card__boton">
+            <i class="bi bi-cart"></i> Comprar ahora
+          </button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="JS/main.js"></script>
+  <script src="JS/burgermenu.js"></script>
+  <script src="JS/hero.js"></script>
 </body>
 
 </html>

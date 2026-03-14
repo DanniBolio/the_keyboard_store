@@ -91,3 +91,62 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
 }
+
+@media (max-width: 715px) {
+
+    .hero {
+        position: relative;
+        height: calc(100vh - 80px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 1.2rem 3rem;
+        gap: 1rem;
+        overflow: hidden;
+    }
+
+    .hero_bg_texto {
+    position: absolute;
+    top: 20%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(50px, 28vw, 70px);
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+    z-index: 0;
+}
+
+    .hero_producto_img {
+        position: relative;
+        top: auto;
+        transform: none;
+        width: 100%;
+        z-index: 1;
+        margin: 0;
+    }
+
+    .hero_prod_inf {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        width: 100%;
+        z-index: 1;
+        padding: 0 0.5rem;
+    }
+
+    .hero_prod_titulo {
+        font-size: 15px;
+    }
+
+    .hero_prod_parrafo {
+        font-size: 13px;
+    }
+
+    .hero__scroll {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 0;
+        z-index: 2;
+    }
+}
