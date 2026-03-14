@@ -7,7 +7,7 @@ const catalogoTeclados = [
     formato: "60%",
     precio: 49.99,
     disponible: true,
-    imagen: "/image/Keyboards/Catalogo/rk61/RK61_6_Wireless_Mechanical_Keyboard.jpg",
+    imagen: "image/Keyboards/Catalogo/rk61/RK61_6_Wireless_Mechanical_Keyboard.jpg",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const catalogoTeclados = [
     formato: "80%",
     precio: 89.99,
     disponible: true,
-    imagen: "/image/Keyboards/Catalogo/m87/M87_TKL_Wireless_Gaming_Keyboard.jpg",
+    imagen: "image/Keyboards/Catalogo/m87/M87_TKL_Wireless_Gaming_Keyboard.jpg",
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const catalogoTeclados = [
     formato: "75%",
     precio: 39.99,
     disponible: true,
-    imagen: "/image/Keyboards/Catalogo/ak820/Attack_Shark_Ajazz_Ak820.jpg",
+    imagen: "image/Keyboards/Catalogo/ak820/Attack_Shark_Ajazz_Ak820.jpg",
   },
   {
     id: 4,
@@ -37,6 +37,6 @@ const catalogoTeclados = [
     formato: "90%",
     precio: 49.99,
     disponible: true,
-    imagen: "/image/Keyboards/Catalogo/tr95/TERPORT_90_TR95-E150.jpg",
+    imagen: "image/Keyboards/Catalogo/tr95/TERPORT_90_TR95-E150.jpg",
   },
 ];
