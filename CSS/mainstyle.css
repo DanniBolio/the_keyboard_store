@@ -1,6 +1,15 @@
+@import url('carrito.css');
+@import url('colors.css');
+@import url('filtros.css');
+@import url('font_family.css');
+@import url('header.css');
+@import url('hero.css');
+@import url('productos.css');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=DM+Sans:wght@400;500&family=Figtree:wght@500&display=swap');

@@ -59,6 +59,7 @@ header {
 
 .carrito,
 .login_register {
+    position: relative;
     width: 42px;
     height: 42px;
     display: flex;
@@ -79,6 +80,22 @@ header {
     background-color: var(--color-primario);
     color: var(--cl-blancos);
     border-color: var(--color-primario);
+}
+
+.nav__carrito-contador {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--color-primario);
+    color: var(--cl-blancos);
+    font-size: 0.65rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    display: none;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Menu Hamburguesa */

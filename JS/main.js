@@ -1,3 +1,101 @@
+//Creación catalogo Productos
+
+const grid = document.getElementById("gridProductos");
+
+function renderizarProductos(productos) {
+  grid.innerHTML = "";
+  productos.forEach((teclado, index) => {
+    const card = document.createElement("article");
+    card.classList.add("card");
+    card.innerHTML = `
+      <div class="card__imagen">
+        <img src="${teclado.imagen}" alt="${teclado.marca} ${teclado.modelo}">
+      </div>
+      <div class="card__info">
+        <p class="card__nombre">${teclado.marca} ${teclado.modelo} ${teclado.formato}</p>
+        <div class="card__precios">
+          <span class="card__precio-actual">$${teclado.precio}</span>
+        </div>
+      </div>
+      <button class="card__boton" onclick="agregarAlCarrito(${teclado.id})">
+        <i class="bi bi-cart"></i> Comprar ahora
+      </button>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+renderizarProductos(catalogoTeclados);
+
+//Buscador
+
+const inputBuscar = document.getElementById("inputBuscar");
+
+inputBuscar.addEventListener("input", () => {
+  const textoBusqueda = inputBuscar.value.toLowerCase();
+  const resultados = catalogoTeclados.filter((teclado) => {
+    return (
+      teclado.marca.toLowerCase().includes(textoBusqueda) ||
+      teclado.modelo.toLowerCase().includes(textoBusqueda) ||
+      teclado.tipoSwitch.toLowerCase().includes(textoBusqueda) ||
+      teclado.formato.toLowerCase().includes(textoBusqueda)
+    );
+  });
+  renderizarProductos(resultados);
+});
+
+const btnFiltro = document.getElementById("btnFiltro");
+const btnCerrarFiltro = document.getElementById("btnCerrarFiltro");
+const filtroPanel = document.getElementById("filtroPanel");
+const filtroOverlay = document.getElementById("filtroOverlay");
+const btnAplicarFiltro = document.getElementById("btnAplicarFiltro");
+const btnBorrarFiltro = document.getElementById("btnBorrarFiltro");
+
+// Filtros
+
+btnFiltro.addEventListener("click", () => {
+  filtroPanel.classList.add("abierto");
+  filtroOverlay.classList.add("abierto");
+});
+
+btnCerrarFiltro.addEventListener("click", cerrarPanel);
+filtroOverlay.addEventListener("click", cerrarPanel);
+
+function cerrarPanel() {
+  filtroPanel.classList.remove("abierto");
+  filtroOverlay.classList.remove("abierto");
+}
+
+btnAplicarFiltro.addEventListener("click", () => {
+  const marca = document.getElementById("filtroMarca").value;
+  const formato = document.getElementById("filtroFormato").value;
+  const precio = document.getElementById("filtroPrecio").value;
+
+  let resultados = [...catalogoTeclados];
+  if (marca) {
+    resultados = resultados.filter((t) => t.marca === marca);
+  }
+  if (formato) {
+    resultados = resultados.filter((t) => t.formato === formato);
+  }
+  if (precio === "menor") {
+    resultados.sort((a, b) => a.precio - b.precio);
+  } else if (precio === "mayor") {
+    resultados.sort((a, b) => b.precio - a.precio);
+  }
+
+  renderizarProductos(resultados);
+  cerrarPanel();
+});
+
+btnBorrarFiltro.addEventListener("click", () => {
+  document.getElementById("filtroMarca").value = "";
+  document.getElementById("filtroFormato").value = "";
+  document.getElementById("filtroPrecio").value = "";
+  renderizarProductos(catalogoTeclados);
+  cerrarPanel();
+});
+
 //Primera entrega
 /*
 const catalogoTeclados = [

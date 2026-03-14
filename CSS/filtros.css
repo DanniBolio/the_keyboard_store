@@ -1,0 +1,115 @@
+.filtro-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 15, 15, 0.6);
+    z-index: 100;
+}
+
+.filtro-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background: var(--cards);
+    z-index: 101;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.filtro-panel.abierto {
+    transform: translateX(0);
+}
+
+.filtro-overlay.abierto {
+    display: block;
+}
+
+.filtro-panel__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filtro-panel__titulo {
+    color: var(--color-primario);
+}
+
+.filtro-panel__cerrar {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.filtro-panel__cerrar:hover {
+    color: var(--color-primario);
+}
+
+.filtro-panel__label {
+    color: var(--color-base);
+    font-size: 0.9rem;
+}
+
+.filtro-panel__select {
+    padding: 0.5rem;
+    border: 1px solid var(--acento);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background: var(--bg);
+    color: var(--color-base);
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.filtro-panel__select:focus {
+    outline: none;
+    border-color: var(--color-primario);
+}
+
+.filtro-panel__grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filtro-panel__botones {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: auto;
+}
+
+.filtro-panel__btn-aplicar {
+    padding: 0.75rem;
+    background: var(--color-primario);
+    color: var(--cl-blancos);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.filtro-panel__btn-aplicar:hover {
+    background: var(--acento-secundario);
+}
+
+.filtro-panel__btn-borrar {
+    padding: 0.75rem;
+    background: none;
+    border: 1px solid var(--acento);
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--acento);
+    transition: all 0.2s ease;
+}
+
+.filtro-panel__btn-borrar:hover {
+    border-color: var(--color-base);
+    color: var(--color-base);
+}
