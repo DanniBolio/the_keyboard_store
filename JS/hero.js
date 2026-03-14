@@ -1,6 +1,7 @@
 const productImage = document.querySelector(".hero_producto_img");
 const intensidad = 20;
 document.addEventListener("mousemove", (evento) => {
+  if (window.innerWidth < 768) return;
   const centroPantallaX = window.innerWidth / 2;
   const centroPantallaY = window.innerHeight / 2;
 
@@ -14,5 +15,6 @@ document.addEventListener("mousemove", (evento) => {
 });
 
 document.addEventListener("mouseleave", () => {
+  if (window.innerWidth < 768) return; 
   productImage.style.transform = "translate(-50%, -42%)";
 });
