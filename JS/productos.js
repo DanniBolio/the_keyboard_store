@@ -1,42 +1,60 @@
-const catalogoTeclados = [
-  {
-    id: 1,
-    marca: "RK Royal Kludge",
-    modelo: "RK61",
-    tipoSwitch: "Blue Switch",
-    formato: "60%",
-    precio: 49.99,
-    disponible: true,
-    imagen: "image/Keyboards/Catalogo/rk61/RK61_6_Wireless_Mechanical_Keyboard.jpg",
-  },
-  {
-    id: 2,
-    marca: "RK Royal Kludge",
-    modelo: "M87 TKL",
-    tipoSwitch: "Cream Switch",
-    formato: "80%",
-    precio: 89.99,
-    disponible: true,
-    imagen: "image/Keyboards/Catalogo/m87/M87_TKL_Wireless_Gaming_Keyboard.jpg",
-  },
-  {
-    id: 3,
-    marca: "Attack Shark Ajazz",
-    modelo: "Ak820",
-    tipoSwitch: "Sea Salt Switch",
-    formato: "75%",
-    precio: 39.99,
-    disponible: true,
-    imagen: "image/Keyboards/Catalogo/ak820/Attack_Shark_Ajazz_Ak820.jpg",
-  },
-  {
-    id: 4,
-    marca: "Terport",
-    modelo: "TR95-E150",
-    tipoSwitch: "Huano Red Switch",
-    formato: "90%",
-    precio: 49.99,
-    disponible: true,
-    imagen: "image/Keyboards/Catalogo/tr95/TERPORT_90_TR95-E150.jpg",
-  },
-];
+let catalogoTeclados = null;
+
+async function cargarCatalogo() {
+  try {
+    const respuesta = await fetch("../data/productos.json");
+    if (!respuesta.ok) {
+      throw new Error(
+        `Error al cargar productos: ${respuesta.status} ${respuesta.statusText}`,
+      );
+    }
+
+    const datos = await respuesta.json();
+    catalogoTeclados = datos;
+
+    return datos;
+  } catch (error) {
+    console.error("No se pudo cargar el catálogo de productos:", error.message);
+
+    mostrarErrorCatalogo();
+
+    catalogoTeclados = [];
+    return [];
+  } finally {
+    ocultarSkeletons();
+  }
+}
+
+function mostrarErrorCatalogo() {
+  const grid =
+    document.getElementById("gridProductos") ||
+    document.getElementById("gridProductosPage");
+
+  if (!grid) return;
+
+  grid.innerHTML = `
+    <div style="
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--acento);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    ">
+      <i class="bi bi-exclamation-circle" style="font-size: 2rem; color: var(--color-primario);"></i>
+      <p style="font-family: 'DM Sans', sans-serif; font-size: 1rem; color: var(--color-base);">
+        No se pudieron cargar los productos.
+      </p>
+      <p style="font-size: 0.85rem;">
+        Intenta recargar la página.
+      </p>
+    </div>
+  `;
+}
+
+function ocultarSkeletons() {
+  const skeletons = document.querySelectorAll(".skeleton");
+  skeletons.forEach((s) => s.remove());
+}

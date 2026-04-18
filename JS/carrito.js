@@ -21,6 +21,53 @@ function cerrarCarrito() {
   carritoOverlay.classList.remove("abierto");
 }
 
+let toastTimeout = null;
+ 
+function mostrarToast(nombre) {
+  let toast = document.getElementById("toastCarrito");
+ 
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "toastCarrito";
+    toast.style.cssText = `
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--color-base);
+      color: var(--cl-blancos);
+      padding: 0.75rem 1.25rem;
+      border-radius: 9999px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 999;
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    `;
+    document.body.appendChild(toast);
+  }
+ 
+  toast.innerHTML = `<i class="bi bi-check-circle-fill" style="color: var(--color-primario);"></i> ${nombre} agregado al carrito`;
+ 
+  setTimeout(() => {
+    toast.style.transform = "translateX(-50%) translateY(0)";
+    toast.style.opacity   = "1";
+  }, 10);
+ 
+  if (toastTimeout) clearTimeout(toastTimeout);
+ 
+  toastTimeout = setTimeout(() => {
+    toast.style.transform = "translateX(-50%) translateY(100px)";
+    toast.style.opacity   = "0";
+    toastTimeout = null;
+  }, 2500);
+}
+
 function calcularTotal() {
   return carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);
 }
