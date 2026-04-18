@@ -1,11 +1,11 @@
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-const btnCarrito      = document.getElementById("btnCarrito");
+const btnCarrito       = document.getElementById("btnCarrito");
 const btnCerrarCarrito = document.getElementById("btnCerrarCarrito");
-const carritoPanel    = document.getElementById("carritoPanel");
-const carritoOverlay  = document.getElementById("carritoOverlay");
+const carritoPanel     = document.getElementById("carritoPanel");
+const carritoOverlay   = document.getElementById("carritoOverlay");
 const btnBorrarCarrito = document.getElementById("btnBorrarCarrito");
-const btnComprar      = document.getElementById("btnComprar");
+const btnComprar       = document.getElementById("btnComprar");
 
 // abrir/cerrar
 btnCarrito.addEventListener("click", () => {
@@ -68,6 +68,246 @@ function mostrarToast(nombre) {
   }, 2500);
 }
 
+function crearModalCompra() {
+  if (document.getElementById("modalCompra")) return;
+
+  const estilos = document.createElement("style");
+  estilos.textContent = `
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 15, 15, 0.75);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .modal-overlay.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal {
+      background: var(--cards);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      max-width: 420px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+      transform: translateY(24px) scale(0.97);
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+
+    .modal-overlay.visible .modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal__icono {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--color-primario);
+      margin-bottom: 0.25rem;
+    }
+
+    .modal__tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--acento);
+    }
+
+    .modal__titulo {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--color-base);
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .modal__titulo span {
+      color: var(--color-primario);
+    }
+
+    .modal__descripcion {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--acento);
+      line-height: 1.6;
+      margin: 0;
+      max-width: 300px;
+    }
+
+    .modal__orden {
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 0.6rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.15rem;
+      width: 100%;
+    }
+
+    .modal__orden-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--acento);
+    }
+
+    .modal__orden-numero {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--color-base);
+      letter-spacing: 0.05em;
+    }
+
+    .modal__progreso {
+      width: 100%;
+      height: 4px;
+      background: var(--bg);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .modal__progreso-barra {
+      height: 100%;
+      background: var(--color-primario);
+      border-radius: 9999px;
+      width: 0%;
+      transition: width 2.8s ease-out;
+    }
+
+    .modal__progreso-barra.animando {
+      width: 100%;
+    }
+
+    .modal__estado {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      color: var(--acento);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .modal__estado i {
+      color: var(--color-primario);
+      font-size: 0.85rem;
+    }
+
+    .modal__btn-cerrar {
+      margin-top: 0.5rem;
+      padding: 0.7rem 2rem;
+      background: var(--color-primario);
+      color: var(--cl-blancos);
+      border: none;
+      border-radius: 9999px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      width: 100%;
+    }
+
+    .modal__btn-cerrar:hover {
+      background: var(--acento-secundario);
+    }
+  `;
+  document.head.appendChild(estilos);
+
+  const overlay = document.createElement("div");
+  overlay.id = "modalCompra";
+  overlay.classList.add("modal-overlay");
+  overlay.innerHTML = `
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+      <div class="modal__icono">
+        <i class="bi bi-keyboard"></i>
+      </div>
+      <p class="modal__tag">Compra confirmada</p>
+      <h2 class="modal__titulo" id="modalTitulo">
+        ¡Gracias por tu<br><span>compra!</span>
+      </h2>
+      <p class="modal__descripcion">
+        Tu pedido está siendo procesado. Te notificaremos cuando
+        esté listo para envío.
+      </p>
+      <div class="modal__orden">
+        <span class="modal__orden-label">Número de orden</span>
+        <span class="modal__orden-numero" id="modalNumeroOrden">#OT-000000</span>
+      </div>
+      <div class="modal__progreso">
+        <div class="modal__progreso-barra" id="modalBarra"></div>
+      </div>
+      <p class="modal__estado">
+        <i class="bi bi-arrow-repeat"></i>
+        Procesando pago...
+      </p>
+      <button class="modal__btn-cerrar" id="btnCerrarModal">
+        Seguir comprando
+      </button>
+    </div>
+  `;
+
+  document.body.appendChild(overlay);
+
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) cerrarModalCompra();
+  });
+  document.getElementById("btnCerrarModal").addEventListener("click", cerrarModalCompra);
+}
+
+function generarNumeroOrden() {
+  return "#OT-" + Math.floor(Math.random() * 900000 + 100000);
+}
+
+function mostrarModalCompra() {
+  crearModalCompra();
+
+  document.getElementById("modalNumeroOrden").textContent = generarNumeroOrden();
+
+  const overlay = document.getElementById("modalCompra");
+  overlay.classList.add("visible");
+
+  setTimeout(() => {
+    document.getElementById("modalBarra").classList.add("animando");
+  }, 50);
+}
+
+function cerrarModalCompra() {
+  const overlay = document.getElementById("modalCompra");
+  if (!overlay) return;
+
+  overlay.classList.remove("visible");
+
+  setTimeout(() => {
+    const barra = document.getElementById("modalBarra");
+    if (barra) barra.classList.remove("animando");
+  }, 300);
+}
+
 function calcularTotal() {
   return carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);
 }
@@ -85,9 +325,9 @@ function guardarCarrito() {
 
 // contador
 function actualizarContador() {
-  const total = carrito.reduce((suma, item) => suma + item.cantidad, 0);
+  const total   = carrito.reduce((suma, item) => suma + item.cantidad, 0);
   const contador = document.getElementById("contadorCarrito");
-  contador.textContent = total;
+  contador.textContent   = total;
   contador.style.display = total === 0 ? "none" : "flex";
 }
 
@@ -132,7 +372,7 @@ function renderizarCarrito() {
 
 document.getElementById("carritoItems").addEventListener("click", (evento) => {
   const boton = evento.target.closest("[data-accion]");
-  if (!boton) return; // si no, ignorar
+  if (!boton) return;
 
   const id     = Number(boton.dataset.id);
   const accion = boton.dataset.accion;
@@ -158,6 +398,7 @@ function agregarAlCarrito(id) {
   }
 
   actualizarCarrito();
+  mostrarToast(`${teclado.marca} ${teclado.modelo}`);
 }
 
 // cantidad
@@ -202,6 +443,10 @@ btnComprar.addEventListener("click", () => {
   carrito = [];
   actualizarCarrito();
   cerrarCarrito();
+
+  setTimeout(() => {
+    mostrarModalCompra();
+  }, 320);
 });
 
 actualizarContador();
