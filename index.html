@@ -28,9 +28,9 @@
 
       <ul class="nav-list">
         <li class="poppins-bold"><a href="#">INICIO</a></li>
-        <li class="poppins-regular"><a href="#">PRODUCTOS</a></li>
-        <li class="poppins-regular"><a href="#">NOSOTROS</a></li>
-        <li class="poppins-regular"><a href="#">CONTACTO</a></li>
+        <li class="poppins-regular"><a href="Páginas/productos.html">PRODUCTOS</a></li>
+        <li class="poppins-regular"><a href="#nosotros">NOSOTROS</a></li>
+        <li class="poppins-regular"><a href="#contacto">CONTACTO</a></li>
       </ul>
     </nav>
 
@@ -69,17 +69,6 @@
     <section class="productos">
       <div class="productos__header">
         <h2 class="productos__titulo poppins-bold" data-aos="fade-up">Productos Recientes</h2>
-        <div class="productos__controles">
-          <div class="productos__buscador" data-aos="fade-up">
-            <i class="bi bi-search"></i>
-            <input type="text" class="productos__input poppins-regular" placeholder="Buscar producto..."
-              id="inputBuscar" />
-          </div>
-          <button class="productos__filtro poppins-regular" id="btnFiltro" data-aos="fade-up">
-            <i class="bi bi-sliders"></i>
-            Filtrar
-          </button>
-        </div>
       </div>
       <div class="productos__grid" id="gridProductos">
       </div>
@@ -87,49 +76,7 @@
   </main>
 
   <div class="filtro-overlay" id="filtroOverlay"></div>
-  <aside class="filtro-panel" id="filtroPanel">
-    <div class="filtro-panel__header">
-      <h3 class="filtro-panel__titulo poppins-bold">Filtros</h3>
-      <button class="filtro-panel__cerrar" id="btnCerrarFiltro">
-        <i class="bi bi-x-lg"></i>
-      </button>
-    </div>
-    <div class="filtro-panel__grupo">
-      <p class="filtro-panel__label poppins-bold">Marca</p>
-      <select class="filtro-panel__select poppins-regular" id="filtroMarca">
-        <option value="">Todas</option>
-        <option value="RK Royal Kludge">RK Royal Kludge</option>
-        <option value="Attack Shark Ajazz">Attack Shark Ajazz</option>
-        <option value="Terport">Terport</option>
-      </select>
-    </div>
-    <div class="filtro-panel__grupo">
-      <p class="filtro-panel__label poppins-bold">Formato</p>
-      <select class="filtro-panel__select poppins-regular" id="filtroFormato">
-        <option value="">Todos</option>
-        <option value="60%">60%</option>
-        <option value="75%">75%</option>
-        <option value="80%">80%</option>
-        <option value="90%">90%</option>
-      </select>
-    </div>
-    <div class="filtro-panel__grupo">
-      <p class="filtro-panel__label poppins-bold">Precio</p>
-      <select class="filtro-panel__select poppins-regular" id="filtroPrecio">
-        <option value="">Sin orden</option>
-        <option value="menor">Menor a mayor</option>
-        <option value="mayor">Mayor a menor</option>
-      </select>
-    </div>
-    <div class="filtro-panel__botones">
-      <button class="filtro-panel__btn-aplicar poppins-bold" id="btnAplicarFiltro">
-        Aplicar
-      </button>
-      <button class="filtro-panel__btn-borrar poppins-regular" id="btnBorrarFiltro">
-        Borrar filtros
-      </button>
-    </div>
-  </aside>
+
 
   <div class="carrito-overlay" id="carritoOverlay"></div>
   <aside class="carrito-panel" id="carritoPanel">
@@ -152,8 +99,177 @@
         Vaciar carrito
       </button>
     </div>
-
   </aside>
+
+  <section class="nosotros" id="nosotros">
+
+    <div class="nosotros__contenido">
+      <span class="nosotros__tag poppins-regular">SOBRE NOSOTROS</span>
+      <h2 class="nosotros__titulo poppins-bold">
+        Pasión por cada tecla, precisión en cada golpe.
+      </h2>
+      <p class="nosotros__parrafo poppins-regular">
+        Orange Key nació en 2021 con una misión clara: acercar los mejores
+        teclados mecánicos a jugadores, programadores y entusiastas del hardware
+        en toda Latinoamérica. Somos un equipo pequeño pero apasionado,
+        obsesionado con la calidad táctil y el rendimiento real.
+      </p>
+      <p class="nosotros__parrafo poppins-regular">
+        Cada producto que ofrecemos pasa por nuestra revisión interna antes
+        de llegar a tus manos. No vendemos lo que no usaríamos nosotros mismos.
+      </p>
+
+      <div class="nosotros__stats">
+        <div class="nosotros__stat">
+          <span class="nosotros__stat-numero poppins-bold">+5,000</span>
+          <span class="nosotros__stat-label poppins-regular">Clientes satisfechos</span>
+        </div>
+        <div class="nosotros__stat">
+          <span class="nosotros__stat-numero poppins-bold">+120</span>
+          <span class="nosotros__stat-label poppins-regular">Productos disponibles</span>
+        </div>
+        <div class="nosotros__stat">
+          <span class="nosotros__stat-numero poppins-bold">4</span>
+          <span class="nosotros__stat-label poppins-regular">Años en el mercado</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="nosotros__valores">
+      <div class="nosotros__valor-card">
+        <i class="bi bi-patch-check nosotros__valor-icono"></i>
+        <h3 class="nosotros__valor-titulo poppins-bold">Calidad garantizada</h3>
+        <p class="nosotros__valor-texto poppins-regular">
+          Solo trabajamos con marcas verificadas y con historial comprobado en el mercado.
+        </p>
+      </div>
+      <div class="nosotros__valor-card">
+        <i class="bi bi-lightning-charge nosotros__valor-icono"></i>
+        <h3 class="nosotros__valor-titulo poppins-bold">Envío rápido</h3>
+        <p class="nosotros__valor-texto poppins-regular">
+          Despachamos en 24 horas. Tu pedido llega cuando lo necesitas, sin excusas.
+        </p>
+      </div>
+      <div class="nosotros__valor-card">
+        <i class="bi bi-headset nosotros__valor-icono"></i>
+        <h3 class="nosotros__valor-titulo poppins-bold">Soporte real</h3>
+        <p class="nosotros__valor-texto poppins-regular">
+          Nuestro equipo responde en menos de 2 horas. Personas reales, no bots.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contacto" id="contacto">
+    <div class="contacto__header">
+      <span class="nosotros__tag poppins-regular">CONTACTO</span>
+      <h2 class="contacto__titulo poppins-bold">¿Tienes alguna duda?</h2>
+      <p class="contacto__subtitulo poppins-regular">
+        Estamos aquí para ayudarte. Escríbenos por cualquiera de estos canales
+        y te respondemos lo antes posible.
+      </p>
+    </div>
+    <div class="contacto__grid">
+      <div class="contacto__card">
+        <div class="contacto__icono-wrap">
+          <i class="bi bi-envelope"></i>
+        </div>
+        <h3 class="contacto__card-titulo poppins-bold">Email</h3>
+        <p class="contacto__card-texto poppins-regular">Respondemos en menos de 2 horas en días hábiles.</p>
+        <a href="mailto:hola@orangekey.com" class="contacto__link poppins-regular">
+          hola@orangekey.com
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+      <div class="contacto__card">
+        <div class="contacto__icono-wrap">
+          <i class="bi bi-whatsapp"></i>
+        </div>
+        <h3 class="contacto__card-titulo poppins-bold">WhatsApp</h3>
+        <p class="contacto__card-texto poppins-regular">Atención directa de lunes a sábado de 9am a 7pm.</p>
+        <a href="https://wa.me/5219991234567" class="contacto__link poppins-regular" target="_blank">
+          +52 999 123 4567
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+      <div class="contacto__card">
+        <div class="contacto__icono-wrap">
+          <i class="bi bi-instagram"></i>
+        </div>
+        <h3 class="contacto__card-titulo poppins-bold">Instagram</h3>
+        <p class="contacto__card-texto poppins-regular">Síguenos para novedades, unboxings y ofertas exclusivas.</p>
+        <a href="#" class="contacto__link poppins-regular" target="_blank">
+          @orangekey.mx
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__marca">
+        <img src="image/Orange_Key_color.svg" alt="Orange Key Logo" class="footer__logo">
+        <p class="footer__descripcion poppins-regular">
+          Tu tienda especializada en teclados mecánicos y periféricos gaming en Latinoamérica.
+        </p>
+        <div class="footer__redes">
+          <a href="#" class="footer__red" aria-label="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="#" class="footer__red" aria-label="Twitter / X">
+            <i class="bi bi-twitter-x"></i>
+          </a>
+          <a href="#" class="footer__red" aria-label="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="#" class="footer__red" aria-label="YouTube">
+            <i class="bi bi-youtube"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer__columna">
+        <h4 class="footer__col-titulo poppins-bold">Empresa</h4>
+        <ul class="footer__col-lista">
+          <li><a href="#nosotros" class="poppins-regular">Sobre nosotros</a></li>
+          <li><a href="#" class="poppins-regular">Trabaja con nosotros</a></li>
+          <li><a href="#" class="poppins-regular">Prensa</a></li>
+          <li><a href="#contacto" class="poppins-regular">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer__columna">
+        <h4 class="footer__col-titulo poppins-bold">Productos</h4>
+        <ul class="footer__col-lista">
+          <li><a href="#" class="poppins-regular">Teclados</a></li>
+          <li><a href="#" class="poppins-regular">Keycaps</a></li>
+          <li><a href="#" class="poppins-regular">Switches</a></li>
+          <li><a href="#" class="poppins-regular">DIY Kits</a></li>
+          <li><a href="#" class="poppins-regular">Gaming Mice</a></li>
+        </ul>
+      </div>
+      <div class="footer__columna">
+        <h4 class="footer__col-titulo poppins-bold">Soporte</h4>
+        <ul class="footer__col-lista">
+          <li><a href="#" class="poppins-regular">Preguntas frecuentes</a></li>
+          <li><a href="#" class="poppins-regular">Garantía y devoluciones</a></li>
+          <li><a href="#" class="poppins-regular">Política de envíos</a></li>
+          <li><a href="#" class="poppins-regular">Soporte al cliente</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="footer__divider">
+    <div class="footer__bottom">
+      <p class="footer__copy poppins-regular">
+        © 2025 Orange Key. Todos los derechos reservados.
+      </p>
+      <div class="footer__legal">
+        <a href="#" class="poppins-regular">Términos y condiciones</a>
+        <a href="#" class="poppins-regular">Política de privacidad</a>
+      </div>
+    </div>
+
+  </footer>
 
   <script src="JS/burgermenu.js"></script>
   <script src="JS/hero.js"></script>

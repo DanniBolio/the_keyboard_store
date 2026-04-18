@@ -2,6 +2,7 @@ const productImage = document.querySelector(".hero_producto_img");
 const intensidad = 20;
 document.addEventListener("mousemove", (evento) => {
   if (window.innerWidth < 768) return;
+  if (evento.sourceCapabilities?.firesTouchEvents) return;
   const centroPantallaX = window.innerWidth / 2;
   const centroPantallaY = window.innerHeight / 2;
 

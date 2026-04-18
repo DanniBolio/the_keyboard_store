@@ -1,12 +1,13 @@
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-const btnCarrito = document.getElementById("btnCarrito");
+const btnCarrito      = document.getElementById("btnCarrito");
 const btnCerrarCarrito = document.getElementById("btnCerrarCarrito");
-const carritoPanel = document.getElementById("carritoPanel");
-const carritoOverlay = document.getElementById("carritoOverlay");
+const carritoPanel    = document.getElementById("carritoPanel");
+const carritoOverlay  = document.getElementById("carritoOverlay");
 const btnBorrarCarrito = document.getElementById("btnBorrarCarrito");
-const btnComprar = document.getElementById("btnComprar");
+const btnComprar      = document.getElementById("btnComprar");
 
+// abrir/cerrar
 btnCarrito.addEventListener("click", () => {
   carritoPanel.classList.add("abierto");
   carritoOverlay.classList.add("abierto");
@@ -20,8 +21,22 @@ function cerrarCarrito() {
   carritoOverlay.classList.remove("abierto");
 }
 
-//Contador
+function calcularTotal() {
+  return carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);
+}
 
+function actualizarCarrito() {
+  guardarCarrito();
+  actualizarContador();
+  renderizarCarrito();
+}
+
+// guardar
+function guardarCarrito() {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+// contador
 function actualizarContador() {
   const total = carrito.reduce((suma, item) => suma + item.cantidad, 0);
   const contador = document.getElementById("contadorCarrito");
@@ -29,17 +44,10 @@ function actualizarContador() {
   contador.style.display = total === 0 ? "none" : "flex";
 }
 
-// Guardar
-
-function guardarCarrito() {
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-}
-
-// Productos
-
+// productos
 function renderizarCarrito() {
   const contenedor = document.getElementById("carritoItems");
-  const totalEl = document.getElementById("carritoTotal");
+  const totalEl    = document.getElementById("carritoTotal");
   contenedor.innerHTML = "";
 
   if (carrito.length === 0) {
@@ -51,11 +59,7 @@ function renderizarCarrito() {
     return;
   }
 
-  const total = carrito.reduce(
-    (suma, item) => suma + item.precio * item.cantidad,
-    0,
-  );
-  totalEl.textContent = `$${total.toFixed(2)}`;
+  totalEl.textContent = `$${calcularTotal().toFixed(2)}`;
 
   carrito.forEach((item) => {
     const div = document.createElement("div");
@@ -66,11 +70,11 @@ function renderizarCarrito() {
         <p class="carrito-item__nombre poppins-bold">${item.marca} ${item.modelo}</p>
         <p class="carrito-item__precio">$${item.precio}</p>
         <div class="carrito-item__cantidad">
-          <button class="carrito-item__btn" onclick="cambiarCantidad(${item.id}, -1)">−</button>
+          <button class="carrito-item__btn" data-accion="restar" data-id="${item.id}">−</button>
           <span>${item.cantidad}</span>
-          <button class="carrito-item__btn" onclick="cambiarCantidad(${item.id}, 1)">+</button>
+          <button class="carrito-item__btn" data-accion="sumar" data-id="${item.id}">+</button>
         </div>
-        <button class="carrito-item__eliminar" onclick="eliminarDelCarrito(${item.id})">
+        <button class="carrito-item__eliminar" data-accion="eliminar" data-id="${item.id}">
           <i class="bi bi-trash"></i> Eliminar
         </button>
       </div>
@@ -79,57 +83,77 @@ function renderizarCarrito() {
   });
 }
 
-// Agregar/Eliminar del carrito
+document.getElementById("carritoItems").addEventListener("click", (evento) => {
+  const boton = evento.target.closest("[data-accion]");
+  if (!boton) return; // si no, ignorar
 
+  const id     = Number(boton.dataset.id);
+  const accion = boton.dataset.accion;
+
+  if (accion === "sumar")    cambiarCantidad(id, 1);
+  if (accion === "restar")   cambiarCantidad(id, -1);
+  if (accion === "eliminar") eliminarDelCarrito(id);
+});
+
+// agregar al carrito
 function agregarAlCarrito(id) {
   const teclado = catalogoTeclados.find((t) => t.id === id);
-  const existente = carrito.find((item) => item.id === id);
+  if (!teclado) {
+    console.error(`agregarAlCarrito: no se encontró el producto con id ${id}`);
+    return;
+  }
 
+  const existente = carrito.find((item) => item.id === id);
   if (existente) {
     existente.cantidad++;
   } else {
     carrito.push({ ...teclado, cantidad: 1 });
   }
 
-  guardarCarrito();
-  actualizarContador();
-  renderizarCarrito();
+  actualizarCarrito();
 }
 
+// cantidad
 function cambiarCantidad(id, cambio) {
   const item = carrito.find((item) => item.id === id);
+  if (!item) {
+    console.error(`cambiarCantidad: no se encontró el item con id ${id} en el carrito`);
+    return;
+  }
+
   item.cantidad += cambio;
 
-  if (item.cantidad === 0) {
+  if (item.cantidad <= 0) {
     eliminarDelCarrito(id);
     return;
   }
 
-  guardarCarrito();
-  actualizarContador();
-  renderizarCarrito();
+  actualizarCarrito();
 }
 
+// eliminar producto
 function eliminarDelCarrito(id) {
+  const existia = carrito.some((item) => item.id === id);
+  if (!existia) {
+    console.warn(`eliminarDelCarrito: el item con id ${id} no estaba en el carrito`);
+    return;
+  }
+
   carrito = carrito.filter((item) => item.id !== id);
-  guardarCarrito();
-  actualizarContador();
-  renderizarCarrito();
+  actualizarCarrito();
 }
 
+// borrar todos los productos
 btnBorrarCarrito.addEventListener("click", () => {
   carrito = [];
-  guardarCarrito();
-  actualizarContador();
-  renderizarCarrito();
+  actualizarCarrito();
 });
 
+// comprar
 btnComprar.addEventListener("click", () => {
   if (carrito.length === 0) return;
   carrito = [];
-  guardarCarrito();
-  actualizarContador();
-  renderizarCarrito();
+  actualizarCarrito();
   cerrarCarrito();
 });
 

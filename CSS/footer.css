@@ -1,0 +1,204 @@
+.footer {
+    position: relative;
+    background-color: white;
+    padding: 80px 100px 40px;
+    overflow: hidden;
+}
+
+.footer__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.footer__marca {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 280px;
+}
+
+.footer__logo {
+    height: 35px;
+    width: auto;
+}
+
+.footer__descripcion {
+    font-size: 0.9rem;
+    color: var(--acento);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.footer__redes {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+.footer__red {
+    width: 38px;
+    height: 38px;
+    border-radius: 9999px;
+    border: 1.5px solid var(--acento);
+    color: var(--acento);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer__red:hover {
+    background-color: var(--color-primario);
+    color: white;
+    border-color: var(--color-primario);
+}
+
+.footer__contacto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: right;
+}
+
+.footer__direccion {
+    font-size: 1rem;
+    color: var(--color-base);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.footer__telefono,
+.footer__email {
+    font-size: 1rem;
+    color: var(--acento);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer__telefono:hover,
+.footer__email:hover {
+    color: var(--color-primario);
+}
+
+.footer__divider {
+    border: none;
+    border-top: 1px solid #e8e8e8;
+    margin: 0 0 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.footer__links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.footer__columna {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer__col-titulo {
+    font-size: 1rem;
+    color: var(--color-base);
+    margin: 0;
+}
+
+.footer__col-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.footer__col-lista a {
+    font-size: 0.9rem;
+    color: var(--acento);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer__col-lista a:hover {
+    color: var(--color-primario);
+}
+
+.footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.footer__copy {
+    font-size: 0.85rem;
+    color: var(--acento);
+    margin: 0;
+}
+
+.footer__legal {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer__legal a {
+    font-size: 0.85rem;
+    color: var(--acento);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer__legal a:hover {
+    color: var(--color-primario);
+}
+
+@media (max-width: 1024px) {
+    .footer {
+        padding: 60px 40px 32px;
+    }
+
+    .footer__links {
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 715px) {
+    .footer {
+        padding: 50px 1.2rem 32px;
+    }
+
+    .footer__top {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .footer__contacto-info {
+        text-align: left;
+    }
+
+    .footer__links {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 2rem;
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+}
