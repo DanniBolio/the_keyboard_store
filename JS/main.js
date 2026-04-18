@@ -1,19 +1,6 @@
-<<<<<<< HEAD
 const base = window.location.hostname.includes("github")
   ? "/the_keyboard_store"
   : "";
-=======
-async function cargarCatalogo(ruta) {
-  try {
-    const res = await fetch("/the_keyboard_store/" + ruta);
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.error("Error cargando productos:", error);
-    return [];
-  }
-}
->>>>>>> 03338d333b4e997ddc2ae56e292def9e11d5e259
 
 // Mostrar últimos productos
 
@@ -24,7 +11,7 @@ function renderizarProductos(productos) {
 
   grid.innerHTML = "";
 
-  productos.forEach((teclado) => {|
+  productos.forEach((teclado) => {
     const card = document.createElement("article");
     card.classList.add("card");
 
