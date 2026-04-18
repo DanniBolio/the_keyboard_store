@@ -33,7 +33,8 @@ function renderizarProductosPagina(productos) {
     const card = document.createElement("article");
     card.classList.add("card");
 
-    const imagenPath = "/the_keyboard_store/" + teclado.imagen;
+    const base = window.location.hostname.includes("github") ? "/the_keyboard_store" : "";
+    const imagenPath = base + "/" + teclado.imagen;
 
     card.innerHTML = `
       <div class="card__imagen">
@@ -88,8 +89,9 @@ function aplicarFiltros(catalogo) {
 }
 
 async function cargarCatalogo() {
+  const base = window.location.hostname.includes("github") ? "/the_keyboard_store" : "";
   try {
-    const res = await fetch("/the_keyboard_store/data/productos.json");
+    const res = await fetch(base + "/data/productos.json");
 
     if (!res.ok) {
       throw new Error("No se pudo cargar el JSON");
