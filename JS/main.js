@@ -1,3 +1,7 @@
+const base = window.location.hostname.includes("github")
+  ? "/the_keyboard_store"
+  : "";
+
 // Mostrar últimos productos
 
 const grid = document.getElementById("gridProductos");
