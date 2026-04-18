@@ -34,7 +34,7 @@ function renderizarProductosPagina(productos) {
     card.classList.add("card");
 
     const base = window.location.hostname.includes("github") ? "/the_keyboard_store" : "";
-    const imagenPath = base + "/" + teclado.imagen;
+    const imagenPath = (base ? base + "/" : "") + teclado.imagen;
 
     card.innerHTML = `
       <div class="card__imagen">

@@ -17,7 +17,7 @@ function renderizarProductos(productos) {
 
     card.innerHTML = `
       <div class="card__imagen">
-        <img src="${base}/${teclado.imagen}" alt="${teclado.marca} ${teclado.modelo}" loading="lazy">
+        <img src="${base ? base + '/' : ''}${teclado.imagen}" alt="${teclado.marca} ${teclado.modelo}" loading="lazy">
       </div>
       <div class="card__info">
         <p class="card__nombre">${teclado.marca} ${teclado.modelo} ${teclado.formato}</p>
