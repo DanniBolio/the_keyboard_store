@@ -43,7 +43,7 @@ async function iniciar() {
     contenedor.innerHTML = "";
   }
 
-  const productos = await cargarCatalogo();
+  const productos = await cargarCatalogo("data/productos.json");
 
   if (productos.length === 0) return;
 

@@ -32,9 +32,12 @@ function renderizarProductosPagina(productos) {
   productos.forEach((teclado) => {
     const card = document.createElement("article");
     card.classList.add("card");
+
+    const imagenPath = "../" + teclado.imagen;
+
     card.innerHTML = `
       <div class="card__imagen">
-        <img src="${teclado.imagen}" alt="${teclado.marca} ${teclado.modelo}" loading="lazy">
+        <img src="${imagenPath}" alt="${teclado.marca} ${teclado.modelo}" loading="lazy">
       </div>
       <div class="card__info">
         <p class="card__nombre">${teclado.marca} ${teclado.modelo} ${teclado.formato}</p>

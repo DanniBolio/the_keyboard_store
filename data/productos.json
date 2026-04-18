@@ -38,5 +38,25 @@
     "precio": 49.99,
     "disponible": true,
     "imagen": "/image/Keyboards/Catalogo/tr95/TERPORT_90_TR95-E150.jpg"
+  },
+  {
+    "id": 5,
+    "marca": "Corsair",
+    "modelo": "K70 Core",
+    "tipoSwitch": "MLX Red",
+    "formato": "70%",
+    "precio": 99.99,
+    "disponible": true,
+    "imagen": "/image/Keyboards/Catalogo/k70_core/Corsair_K70_Core.png"
+  },
+  {
+    "id": 6,
+    "marca": "Balam Rush",
+    "modelo": "DL GK3",
+    "tipoSwitch": "KTT Cream Yellow Pro",
+    "formato": "90%",
+    "precio": 89.99,
+    "disponible": true,
+    "imagen": "/image/Keyboards/Catalogo/Defeat_level_GK3/Balam_Rush_Defeat_Level_GK3.jpg"
   }
 ]
