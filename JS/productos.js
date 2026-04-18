@@ -1,8 +1,8 @@
 let catalogoTeclados = null;
 
-async function cargarCatalogo() {
+async function cargarCatalogo(path = "../data/productos.json") {
   try {
-    const respuesta = await fetch("../data/productos.json");
+    const respuesta = await fetch(path);
     if (!respuesta.ok) {
       throw new Error(
         `Error al cargar productos: ${respuesta.status} ${respuesta.statusText}`,

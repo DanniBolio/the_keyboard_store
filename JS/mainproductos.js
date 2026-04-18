@@ -32,9 +32,12 @@ function renderizarProductosPagina(productos) {
   productos.forEach((teclado) => {
     const card = document.createElement("article");
     card.classList.add("card");
+
+    const imagenPath = "/the_keyboard_store/" + teclado.imagen;
+
     card.innerHTML = `
       <div class="card__imagen">
-        <img src="${teclado.imagen}" alt="${teclado.marca} ${teclado.modelo}" loading="lazy">
+        <img src="${imagenPath}" alt="${teclado.marca} ${teclado.modelo}" loading="lazy">
       </div>
       <div class="card__info">
         <p class="card__nombre">${teclado.marca} ${teclado.modelo} ${teclado.formato}</p>
@@ -86,7 +89,7 @@ function aplicarFiltros(catalogo) {
 
 async function cargarCatalogo() {
   try {
-    const res = await fetch("../data/productos.json");
+    const res = await fetch("/the_keyboard_store/data/productos.json");
 
     if (!res.ok) {
       throw new Error("No se pudo cargar el JSON");
