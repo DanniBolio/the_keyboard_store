@@ -1,3 +1,14 @@
+async function cargarCatalogo(ruta) {
+  try {
+    const res = await fetch("/the_keyboard_store/" + ruta);
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error cargando productos:", error);
+    return [];
+  }
+}
+
 // Mostrar últimos productos
 
 const grid = document.getElementById("gridProductos");

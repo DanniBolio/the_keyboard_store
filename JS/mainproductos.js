@@ -33,7 +33,7 @@ function renderizarProductosPagina(productos) {
     const card = document.createElement("article");
     card.classList.add("card");
 
-    const imagenPath = "../" + teclado.imagen;
+    const imagenPath = "/the_keyboard_store/" + teclado.imagen;
 
     card.innerHTML = `
       <div class="card__imagen">
@@ -89,7 +89,7 @@ function aplicarFiltros(catalogo) {
 
 async function cargarCatalogo() {
   try {
-    const res = await fetch("../data/productos.json");
+    const res = await fetch("/the_keyboard_store/data/productos.json");
 
     if (!res.ok) {
       throw new Error("No se pudo cargar el JSON");
